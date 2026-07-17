@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import produtosImagem from "../assets/all_home_page.png";
+import DepoimentosCarrossel from "../components/DepoimentosCarrossel";
 import "./Home.css";
 
 function Home() {
@@ -41,6 +42,8 @@ function Home() {
           <p>Proteção eficaz sem sais de alumínio na composição.</p>
         </div>
       </section>
+
+      <DepoimentosCarrossel />
     </div>
   );
 }

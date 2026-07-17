@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 import Sobre from "./pages/Sobre";
 import Produtos from "./pages/Produtos";
 import ProdutoDetalhe from "./pages/ProdutoDetalhe";
-import Depoimentos from "./pages/Depoimentos";
 import Carrinho from "./pages/Carrinho";
 import Perfil from "./pages/Perfil";
 import Entrar from "./pages/Entrar";
@@ -23,7 +22,6 @@ function App() {
               <Route path="sobre" element={<Sobre />} />
               <Route path="produtos" element={<Produtos />} />
               <Route path="produtos/:id" element={<ProdutoDetalhe />} />
-              <Route path="depoimentos" element={<Depoimentos />} />
               <Route path="carrinho" element={<Carrinho />} />
               <Route path="perfil" element={<Perfil />} />
               <Route path="entrar" element={<Entrar />} />

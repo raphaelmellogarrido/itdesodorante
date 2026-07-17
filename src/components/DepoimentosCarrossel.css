@@ -1,0 +1,123 @@
+.depoimentos-home {
+  padding: 24px 24px 64px;
+}
+
+.depoimentos-home-cabecalho {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+
+.depoimentos-home-badge {
+  display: inline-block;
+  background-color: var(--color-blue-tint);
+  border: 1px solid var(--color-border);
+  color: var(--color-teal);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.depoimentos-home-cabecalho h2 {
+  color: var(--color-navy);
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.carrossel-viewport {
+  overflow: hidden;
+}
+
+.carrossel-trilha {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.carrossel-trilha.sem-transicao {
+  transition: none;
+}
+
+.carrossel-slide {
+  flex: 0 0 calc(100% / var(--visiveis, 3));
+  box-sizing: border-box;
+  padding: 4px 10px;
+}
+
+.carrossel-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(20, 40, 80, 0.05);
+}
+
+.carrossel-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--color-blue-tint);
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.carrossel-texto {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0 0 18px;
+  flex: 1;
+}
+
+.carrossel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.carrossel-tag {
+  background-color: var(--color-blue-tint);
+  color: var(--color-navy);
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.carrossel-autor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.carrossel-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.carrossel-nome {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-navy);
+  font-size: 0.9rem;
+}
+
+.carrossel-papel {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
