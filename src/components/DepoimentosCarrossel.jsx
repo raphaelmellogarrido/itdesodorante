@@ -5,7 +5,7 @@ const depoimentos = [
   {
     icone: "🌿",
     tags: ["Pele sensível", "Sem irritação"],
-    texto: "Tenho pele sensível e sempre tive irritação com desodorante comum. Com o FIT IT isso simplesmente acabou. Não resseca e ainda protege o dia todo.",
+    texto: "Tenho pele sensível e sempre tive irritação com desodorante comum. Com o IT desodorante isso simplesmente acabou. Não resseca e ainda protege o dia todo.",
     avatar: "https://i.pravatar.cc/150?img=5",
     nome: "Marina Alves",
     papel: "Cliente há 8 meses",
@@ -21,7 +21,7 @@ const depoimentos = [
   {
     icone: "🌱",
     tags: ["Vegano", "Cruelty-free"],
-    texto: "Sempre foi difícil achar um desodorante vegano que realmente funcionasse. O FIT IT não deve nada aos convencionais.",
+    texto: "Sempre foi difícil achar um desodorante vegano que realmente funcionasse. O IT desodorante não deve nada aos convencionais.",
     avatar: "https://i.pravatar.cc/150?img=23",
     nome: "Camila Duarte",
     papel: "Vegana há 5 anos",
@@ -37,7 +37,7 @@ const depoimentos = [
   {
     icone: "⭐",
     tags: ["Indicação", "Fórmula limpa"],
-    texto: "Indico o FIT IT pra pacientes com pele sensível justamente por não conter álcool nem sais de alumínio. Uma fórmula que respeita a pele.",
+    texto: "Indico o IT desodorante pra pacientes com pele sensível justamente por não conter álcool nem sais de alumínio. Uma fórmula que respeita a pele.",
     avatar: "https://i.pravatar.cc/150?img=44",
     nome: "Juliana Rocha",
     papel: "Dermatologista parceira",
@@ -61,7 +61,7 @@ const depoimentos = [
   {
     icone: "🏃",
     tags: ["Alta performance", "Sem irritação"],
-    texto: "Corro todo fim de semana e o FIT IT aguenta o treino inteiro sem perder o efeito nem irritar a pele, mesmo com o atrito da roupa.",
+    texto: "Corro todo fim de semana e o IT desodorante aguenta o treino inteiro sem perder o efeito nem irritar a pele, mesmo com o atrito da roupa.",
     avatar: "https://i.pravatar.cc/150?img=60",
     nome: "Lucas Martins",
     papel: "Corredor amador",
@@ -77,7 +77,7 @@ const depoimentos = [
   {
     icone: "🔁",
     tags: ["Cliente recorrente", "Recomendo"],
-    texto: "Já é o quarto pote que compro. Uma vez que você experimenta o FIT IT, não dá muita vontade de voltar pro desodorante comum.",
+    texto: "Já é o quarto pote que compro. Uma vez que você experimenta o IT desodorante, não dá muita vontade de voltar pro desodorante comum.",
     avatar: "https://i.pravatar.cc/150?img=68",
     nome: "Thiago Nascimento",
     papel: "Cliente recorrente",
@@ -137,7 +137,7 @@ function DepoimentosCarrossel() {
     <section className="depoimentos-home container">
       <div className="depoimentos-home-cabecalho">
         <span className="depoimentos-home-badge">Depoimentos</span>
-        <h2>O que dizem quem já usa FIT IT</h2>
+        <h2>O que dizem quem já usa IT desodorante</h2>
       </div>
 
       <div className="carrossel-viewport" style={{ "--visiveis": visiveis }}>

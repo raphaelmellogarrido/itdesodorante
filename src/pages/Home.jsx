@@ -14,7 +14,7 @@ function Home() {
               Proteção que acompanha
               <br /> o seu ritmo.
             </h1>
-            <p>Conheça a linha FIT IT de desodorantes: fórmulas leves, veganas e desenvolvidas para o seu dia a dia.</p>
+            <p>Conheça a linha IT de desodorantes: fórmulas leves, veganas e desenvolvidas para o seu dia a dia.</p>
             <div className="hero-actions">
               <Link to="/produtos" className="btn btn-solid">
                 Ver produtos
