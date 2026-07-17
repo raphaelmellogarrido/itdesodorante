@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import produtosImagem from "../assets/all_home_page.png";
 import DepoimentosCarrossel from "../components/DepoimentosCarrossel";
+import HeroFrasesCarrossel from "../components/HeroFrasesCarrossel";
 import "./Home.css";
 
 function Home() {
   return (
     <div className="home">
       <section className="hero">
+        <div className="container">
+          <HeroFrasesCarrossel />
+        </div>
         <div className="hero-inner container">
           <div className="hero-content">
             <span className="hero-badge">Vegano · 0% Álcool · 0% Alumínio</span>

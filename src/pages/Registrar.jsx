@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { getErrorMessage } from "../lib/pocketbase";
 import { validarSenha, nomeValido, emailValido, verificarEmailDisponivel } from "../lib/validation";
+import BotaoMostrarSenha from "../components/BotaoMostrarSenha";
 import "./Auth.css";
 
 function CheckIcon() {
@@ -27,6 +28,9 @@ function Registrar() {
   const [emailDisponivel, setEmailDisponivel] = useState(null); // null | true | false
   const [verificandoEmail, setVerificandoEmail] = useState(false);
   const verificacaoId = useRef(0);
+
+  const [mostrarSenha, setMostrarSenha] = useState(false);
+  const [mostrarConfirmarSenha, setMostrarConfirmarSenha] = useState(false);
 
   const nomeOk = nome.length > 0 && nomeValido(nome);
   const nomeRuim = nome.length > 0 && !nomeValido(nome);
@@ -132,30 +136,38 @@ function Registrar() {
 
         <label className="auth-field">
           Senha
-          <div className="campo-status-wrap">
+          <div className="campo-status-wrap campo-status-wrap--senha">
             <input
-              type="password"
+              type={mostrarSenha ? "text" : "password"}
               placeholder="••••••••"
               value={senha}
               onChange={(event) => setSenha(event.target.value)}
               className={senhaOk ? "campo-valido" : erroSenha ? "campo-invalido" : ""}
             />
             {senhaOk && <CheckIcon />}
+            <BotaoMostrarSenha
+              visivel={mostrarSenha}
+              onClick={() => setMostrarSenha((valor) => !valor)}
+            />
           </div>
           {erroSenha && <p className="campo-mensagem-erro">{erroSenha}</p>}
         </label>
 
         <label className="auth-field">
           Confirmar senha
-          <div className="campo-status-wrap">
+          <div className="campo-status-wrap campo-status-wrap--senha">
             <input
-              type="password"
+              type={mostrarConfirmarSenha ? "text" : "password"}
               placeholder="••••••••"
               value={confirmarSenha}
               onChange={(event) => setConfirmarSenha(event.target.value)}
               className={confirmarOk ? "campo-valido" : confirmarRuim ? "campo-invalido" : ""}
             />
             {confirmarOk && <CheckIcon />}
+            <BotaoMostrarSenha
+              visivel={mostrarConfirmarSenha}
+              onClick={() => setMostrarConfirmarSenha((valor) => !valor)}
+            />
           </div>
           {confirmarRuim && <p className="campo-mensagem-erro">As senhas não coincidem.</p>}
         </label>

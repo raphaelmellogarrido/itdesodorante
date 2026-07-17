@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import BotaoMostrarSenha from "../components/BotaoMostrarSenha";
 import "./Auth.css";
 
 function Entrar() {
@@ -8,6 +9,7 @@ function Entrar() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [mostrarSenha, setMostrarSenha] = useState(false);
   const [erro, setErro] = useState("");
   const [enviando, setEnviando] = useState(false);
 
@@ -21,6 +23,7 @@ function Entrar() {
       navigate("/");
     } catch (error) {
       setErro("E-mail ou senha incorretos.");
+      setSenha("");
     } finally {
       setEnviando(false);
     }
@@ -47,13 +50,19 @@ function Entrar() {
 
         <label className="auth-field">
           Senha
-          <input
-            type="password"
-            placeholder="••••••••"
-            value={senha}
-            onChange={(event) => setSenha(event.target.value)}
-            required
-          />
+          <div className="campo-status-wrap">
+            <input
+              type={mostrarSenha ? "text" : "password"}
+              placeholder="••••••••"
+              value={senha}
+              onChange={(event) => setSenha(event.target.value)}
+              required
+            />
+            <BotaoMostrarSenha
+              visivel={mostrarSenha}
+              onClick={() => setMostrarSenha((valor) => !valor)}
+            />
+          </div>
         </label>
 
         <Link to="/esqueci-senha" className="auth-esqueci-senha">
