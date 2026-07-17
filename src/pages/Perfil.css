@@ -1,0 +1,94 @@
+.perfil {
+  padding: 48px 24px 80px;
+  max-width: 820px;
+}
+
+.perfil-cabecalho {
+  margin-bottom: 32px;
+}
+
+.perfil-cabecalho h1 {
+  color: var(--color-navy);
+  margin: 0 0 8px;
+}
+
+.perfil-cabecalho p {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.perfil-form {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 20px 40px rgba(20, 40, 80, 0.06);
+}
+
+.perfil-secao {
+  margin-bottom: 32px;
+}
+
+.perfil-secao h2 {
+  font-size: 1.05rem;
+  color: var(--color-navy);
+  margin: 0 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.perfil-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 20px;
+}
+
+.perfil-campo-largo {
+  grid-column: 1 / -1;
+}
+
+.perfil-form .auth-field select {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text);
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  outline: none;
+  background-color: var(--color-white);
+  transition: border-color 0.2s ease;
+}
+
+.perfil-form .auth-field select:focus {
+  border-color: var(--color-teal);
+}
+
+.perfil-form .auth-field input:disabled {
+  background-color: var(--color-blue-tint);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.perfil-sucesso {
+  background-color: #e8f7ef;
+  border: 1px solid #a9dfc0;
+  color: #1e7a45;
+  font-size: 0.88rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 0 0 18px;
+}
+
+.perfil-salvar {
+  min-width: 200px;
+}
+
+@media (max-width: 640px) {
+  .perfil-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .perfil-form {
+    padding: 24px;
+  }
+}

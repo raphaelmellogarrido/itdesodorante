@@ -30,8 +30,13 @@ export function AuthProvider({ children }) {
     pb.authStore.clear();
   }
 
+  async function updateProfile(data) {
+    await pb.collection("users").update(user.id, data);
+    await pb.collection("users").authRefresh();
+  }
+
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider value={{ user, login, register, logout, updateProfile }}>
       {children}
     </AuthContext.Provider>
   );

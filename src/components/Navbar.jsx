@@ -22,6 +22,8 @@ function Navbar() {
     navigate("/");
   }
 
+  const primeiroNome = user?.name ? user.name.trim().split(/\s+/)[0] : user?.email;
+
   return (
     <header className="navbar">
       <div className="navbar-inner container">
@@ -46,9 +48,9 @@ function Navbar() {
           <div className="navbar-actions navbar-actions--mobile">
             {user ? (
               <>
-                <span className="navbar-user">
-                  Olá, <span className="navbar-user-nome">{user.name || user.email}</span>
-                </span>
+                <Link to="/perfil" className="navbar-user" onClick={closeMenu}>
+                  Olá, <span className="navbar-user-nome">{primeiroNome}</span>
+                </Link>
                 <button type="button" className="btn btn-outline" onClick={handleSair}>
                   Sair
                 </button>
@@ -78,9 +80,9 @@ function Navbar() {
 
           {user ? (
             <>
-              <span className="navbar-user">
-                Olá, <span className="navbar-user-nome">{user.name || user.email}</span>
-              </span>
+              <Link to="/perfil" className="navbar-user">
+                Olá, <span className="navbar-user-nome">{primeiroNome}</span>
+              </Link>
               <button type="button" className="btn btn-outline" onClick={handleSair}>
                 Sair
               </button>

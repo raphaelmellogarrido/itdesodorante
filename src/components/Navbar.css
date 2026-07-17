@@ -77,6 +77,11 @@
   font-weight: 600;
   color: var(--color-navy);
   white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.navbar-user:hover {
+  color: var(--color-teal);
 }
 
 .navbar-actions--mobile {
