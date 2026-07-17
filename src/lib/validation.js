@@ -1,3 +1,5 @@
+import { pb } from "./pocketbase";
+
 const SENHAS_COMUNS = ["12345678", "123456789", "1234567890", "password", "senha123", "senha1234", "qwerty123", "11111111", "00000000", "87654321", "abcdefgh", "letmein1", "iloveyou", "admin123", "brasil123", "12345678a"];
 
 export function validarSenha(senha) {
@@ -17,4 +19,25 @@ export function validarSenha(senha) {
   }
 
   return null;
+}
+
+export function nomeValido(nome) {
+  return nome.trim().length >= 4;
+}
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export function emailValido(email) {
+  return EMAIL_REGEX.test(email);
+}
+
+export async function verificarEmailDisponivel(email) {
+  try {
+    const url = pb.buildURL(`/api/check-email?email=${encodeURIComponent(email)}`);
+    const response = await fetch(url);
+    const data = await response.json();
+    return !data.exists;
+  } catch {
+    return null;
+  }
 }

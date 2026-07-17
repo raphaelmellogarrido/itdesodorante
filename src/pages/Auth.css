@@ -61,6 +61,40 @@
   border-color: var(--color-teal);
 }
 
+.campo-status-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.campo-status-wrap input {
+  width: 100%;
+  padding-right: 38px;
+}
+
+.campo-status-wrap input.campo-valido {
+  border-color: #1e7a45;
+}
+
+.campo-status-wrap input.campo-invalido {
+  border-color: #b3261e;
+}
+
+.campo-check-icon {
+  position: absolute;
+  right: 12px;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.campo-mensagem-erro {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #b3261e;
+}
+
 .auth-hint {
   font-size: 0.78rem;
   font-weight: 400;
