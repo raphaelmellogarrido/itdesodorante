@@ -8,7 +8,7 @@ import "./Navbar.css";
 function Navbar() {
   const [open, setOpen] = useState(false);
   const { user, logout } = useAuth();
-  const { itemCount } = useCart();
+  const { itemCount, clearCart } = useCart();
   const navigate = useNavigate();
 
   const closeMenu = () => setOpen(false);
@@ -18,6 +18,7 @@ function Navbar() {
 
   function handleSair() {
     logout();
+    clearCart();
     closeMenu();
     navigate("/");
   }
