@@ -57,52 +57,22 @@ function Registrar() {
 
         <label className="auth-field">
           Nome
-          <input
-            type="text"
-            placeholder="Seu nome"
-            value={nome}
-            onChange={(event) => setNome(event.target.value)}
-            required
-          />
+          <input type="text" placeholder="Seu nome" value={nome} onChange={(event) => setNome(event.target.value)} required />
         </label>
 
         <label className="auth-field">
           E-mail
-          <input
-            type="email"
-            placeholder="voce@email.com"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
+          <input type="email" placeholder="voce@email.com" value={email} onChange={(event) => setEmail(event.target.value)} required />
         </label>
 
         <label className="auth-field">
           Senha
-          <input
-            type="password"
-            placeholder="••••••••"
-            value={senha}
-            onChange={(event) => setSenha(event.target.value)}
-            minLength={8}
-            required
-          />
-          <span className="auth-hint">
-            Mínimo 8 caracteres, com letras e números. Nada de senhas óbvias
-            como "12345678".
-          </span>
+          <input type="password" placeholder="••••••••" value={senha} onChange={(event) => setSenha(event.target.value)} minLength={8} required />
         </label>
 
         <label className="auth-field">
           Confirmar senha
-          <input
-            type="password"
-            placeholder="••••••••"
-            value={confirmarSenha}
-            onChange={(event) => setConfirmarSenha(event.target.value)}
-            minLength={8}
-            required
-          />
+          <input type="password" placeholder="••••••••" value={confirmarSenha} onChange={(event) => setConfirmarSenha(event.target.value)} minLength={8} required />
         </label>
 
         <button type="submit" className="btn btn-solid auth-submit" disabled={enviando}>

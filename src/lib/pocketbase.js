@@ -9,10 +9,9 @@ export function getFileUrl(record, filename) {
 
 const MENSAGENS_POR_CODIGO = {
   validation_not_unique: "Este e-mail já está cadastrado. Tente entrar ou use outro e-mail.",
-  validation_invalid_email: "Digite um e-mail válido.",
+  validation_is_email: "Digite um e-mail válido.",
   validation_required: "Preencha todos os campos.",
-  validation_min_text_length: "A senha precisa ter pelo menos 8 caracteres.",
-  validation_length_invalid: "A senha precisa ter pelo menos 8 caracteres.",
+  validation_min_text_constraint: "A senha precisa ter pelo menos 8 caracteres.",
 };
 
 export function getErrorMessage(error) {

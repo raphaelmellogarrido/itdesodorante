@@ -1,21 +1,4 @@
-const SENHAS_COMUNS = [
-  "12345678",
-  "123456789",
-  "1234567890",
-  "password",
-  "senha123",
-  "senha1234",
-  "qwerty123",
-  "11111111",
-  "00000000",
-  "87654321",
-  "abcdefgh",
-  "letmein1",
-  "iloveyou",
-  "admin123",
-  "brasil123",
-  "12345678a",
-];
+const SENHAS_COMUNS = ["12345678", "123456789", "1234567890", "password", "senha123", "senha1234", "qwerty123", "11111111", "00000000", "87654321", "abcdefgh", "letmein1", "iloveyou", "admin123", "brasil123", "12345678a"];
 
 export function validarSenha(senha) {
   if (senha.length < 8) {
@@ -23,7 +6,7 @@ export function validarSenha(senha) {
   }
 
   if (SENHAS_COMUNS.includes(senha.toLowerCase())) {
-    return "Essa senha é muito comum e fácil de adivinhar. Escolha outra.";
+    return "Senha fraca.";
   }
 
   const temLetra = /[a-zA-Z]/.test(senha);
