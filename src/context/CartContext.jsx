@@ -47,12 +47,14 @@ export function CartProvider({ children }) {
   }, [items]);
 
   function addItem(produto, quantidade = 1) {
+    const estoque = produto.estoque ?? 0;
+
     setItems((atual) => {
       const existente = atual.find((item) => item.id === produto.id);
       if (existente) {
         return atual.map((item) =>
           item.id === produto.id
-            ? { ...item, quantidade: item.quantidade + quantidade }
+            ? { ...item, quantidade: Math.min(estoque, item.quantidade + quantidade) }
             : item
         );
       }
@@ -66,7 +68,8 @@ export function CartProvider({ children }) {
           name: produto.name,
           price: produto.price,
           featured_image: produto.featured_image,
-          quantidade,
+          estoque,
+          quantidade: Math.min(estoque, quantidade),
         },
       ];
     });

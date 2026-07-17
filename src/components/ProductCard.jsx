@@ -12,8 +12,12 @@ function ProductCard({ produto }) {
   const { addItem } = useCart();
   const [adicionado, setAdicionado] = useState(false);
 
+  const estoque = produto.estoque ?? 0;
+  const esgotado = estoque <= 0;
+
   const handleAdicionar = (event) => {
     event.preventDefault();
+    if (esgotado) return;
     addItem(produto, 1);
     setAdicionado(true);
     setTimeout(() => setAdicionado(false), 1800);
@@ -25,6 +29,7 @@ function ProductCard({ produto }) {
     <Link to={`/produtos/${produto.id}`} className="product-card">
       <div className="product-card-visual">
         <img src={imageUrl} alt={produto.name} loading="lazy" />
+        {esgotado && <span className="product-card-esgotado">Esgotado</span>}
       </div>
 
       <div className="product-card-body">
@@ -36,8 +41,9 @@ function ProductCard({ produto }) {
             type="button"
             className={`btn btn-solid product-card-btn${adicionado ? " is-added" : ""}`}
             onClick={handleAdicionar}
+            disabled={esgotado}
           >
-            {adicionado ? "Adicionado ✓" : "Adicionar ao carrinho"}
+            {esgotado ? "Esgotado" : adicionado ? "Adicionado ✓" : "Adicionar ao carrinho"}
           </button>
         </div>
       </div>

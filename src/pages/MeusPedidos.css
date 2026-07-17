@@ -1,0 +1,162 @@
+.meus-pedidos {
+  padding: 48px 24px 80px;
+  max-width: 820px;
+}
+
+.meus-pedidos-cabecalho {
+  margin-bottom: 32px;
+}
+
+.meus-pedidos-cabecalho h1 {
+  color: var(--color-navy);
+  margin: 0 0 8px;
+}
+
+.meus-pedidos-cabecalho p {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.meus-pedidos-vazio {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.meus-pedidos-vazio p {
+  color: var(--color-text-muted);
+  margin: 0 0 20px;
+}
+
+.meus-pedidos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pedido-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(20, 40, 80, 0.06);
+}
+
+.pedido-card-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pedido-numero {
+  display: block;
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.pedido-data {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  margin-top: 2px;
+}
+
+.pedido-status {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background-color: var(--color-blue-tint);
+  color: var(--color-navy);
+}
+
+.pedido-status--pago {
+  background-color: #e6f4fb;
+  color: var(--color-teal);
+}
+
+.pedido-status--enviado {
+  background-color: #eef7fb;
+  color: var(--color-navy);
+}
+
+.pedido-status--entregue {
+  background-color: #e8f7ef;
+  color: #1e7a45;
+}
+
+.pedido-status--cancelado {
+  background-color: #fbebea;
+  color: #b3261e;
+}
+
+.pedido-itens {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pedido-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pedido-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.pedido-item-nome {
+  flex: 1;
+  color: var(--color-text);
+}
+
+.pedido-item-quantidade {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.pedido-item-preco {
+  color: var(--color-navy);
+  font-weight: 600;
+  min-width: 90px;
+  text-align: right;
+}
+
+.pedido-card-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.pedido-previsao {
+  margin: 12px 0 0;
+  color: var(--color-teal);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .pedido-card {
+    padding: 18px;
+  }
+
+  .pedido-item-preco {
+    min-width: 70px;
+  }
+}

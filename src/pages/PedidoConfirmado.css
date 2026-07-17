@@ -1,0 +1,69 @@
+.pedido-confirmado {
+  max-width: 520px;
+  padding: 64px 24px 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pedido-confirmado-icone {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background-color: #e8f7ef;
+  color: #1e7a45;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pedido-confirmado h1 {
+  color: var(--color-navy);
+  margin: 0 0 12px;
+}
+
+.pedido-confirmado > p {
+  color: var(--color-text-muted);
+  margin: 0 0 32px;
+  max-width: 400px;
+}
+
+.pedido-confirmado-card {
+  width: 100%;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.pedido-confirmado-linha {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.pedido-confirmado-linha:last-child {
+  border-bottom: none;
+}
+
+.pedido-confirmado-linha span:first-child {
+  color: var(--color-text-muted);
+}
+
+.pedido-confirmado-linha span:last-child {
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.pedido-confirmado-acoes {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}

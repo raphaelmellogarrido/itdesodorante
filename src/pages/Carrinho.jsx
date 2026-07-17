@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
-import { getFileUrl } from "../lib/pocketbase";
+import { getErrorMessage, getFileUrl } from "../lib/pocketbase";
+import { camposFaltando, criarPedidoFake, validarEstoque } from "../lib/pedidos";
 import "./Carrinho.css";
 
 function formatPreco(preco) {
@@ -8,7 +11,42 @@ function formatPreco(preco) {
 }
 
 function Carrinho() {
-  const { items, updateQuantidade, removeItem, totalPrice } = useCart();
+  const { user } = useAuth();
+  const { items, updateQuantidade, removeItem, totalPrice, clearCart } = useCart();
+  const navigate = useNavigate();
+  const [finalizando, setFinalizando] = useState(false);
+  const [erro, setErro] = useState("");
+
+  const faltando = user ? camposFaltando(user) : [];
+  const podeComprar = Boolean(user) && faltando.length === 0;
+
+  async function handleFinalizarCompra() {
+    setErro("");
+    setFinalizando(true);
+    try {
+      const problemas = await validarEstoque(items);
+      if (problemas.length > 0) {
+        setErro(
+          problemas
+            .map((p) =>
+              p.disponivel > 0
+                ? `${p.nome}: só temos ${p.disponivel} em estoque`
+                : `${p.nome}: esgotado`
+            )
+            .join(" — ")
+        );
+        setFinalizando(false);
+        return;
+      }
+
+      const pedido = await criarPedidoFake({ user, itens: items, totalPrice });
+      clearCart();
+      navigate(`/pedido-confirmado/${pedido.id}`);
+    } catch (error) {
+      setErro(getErrorMessage(error));
+      setFinalizando(false);
+    }
+  }
 
   if (items.length === 0) {
     return (
@@ -57,6 +95,7 @@ function Carrinho() {
                   type="button"
                   aria-label="Aumentar quantidade"
                   onClick={() => updateQuantidade(item.id, item.quantidade + 1)}
+                  disabled={item.quantidade >= (item.estoque ?? Infinity)}
                 >
                   +
                 </button>
@@ -84,12 +123,29 @@ function Carrinho() {
             <span>Total</span>
             <span className="carrinho-resumo-total">{formatPreco(totalPrice)}</span>
           </div>
-          <button type="button" className="btn btn-solid carrinho-checkout" disabled>
-            Finalizar compra
+          {erro && <p className="auth-erro">{erro}</p>}
+
+          <button
+            type="button"
+            className="btn btn-solid carrinho-checkout"
+            disabled={!podeComprar || finalizando}
+            onClick={handleFinalizarCompra}
+          >
+            {finalizando ? "Finalizando..." : "Finalizar compra"}
           </button>
-          <p className="carrinho-checkout-aviso">
-            Finalização de compra ainda não disponível.
-          </p>
+
+          {!user && (
+            <p className="carrinho-checkout-aviso">
+              <Link to="/entrar">Entre na sua conta</Link> para finalizar a compra.
+            </p>
+          )}
+
+          {user && faltando.length > 0 && (
+            <p className="carrinho-checkout-aviso">
+              Complete seu cadastro para comprar: {faltando.join(", ")}.{" "}
+              <Link to="/perfil">Ir para o perfil</Link>
+            </p>
+          )}
           <Link to="/produtos" className="carrinho-continuar">
             Continuar comprando
           </Link>

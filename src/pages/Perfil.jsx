@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { getErrorMessage } from "../lib/pocketbase";
 import { formatarCPF, formatarTelefone, formatarCEP, validarCPF } from "../lib/masks";
@@ -87,6 +87,9 @@ function Perfil() {
       <div className="perfil-cabecalho">
         <h1>Meu perfil</h1>
         <p>Mantenha seus dados atualizados para agilizar suas compras.</p>
+        <Link to="/meus-pedidos" className="perfil-link-pedidos">
+          Ver meus pedidos →
+        </Link>
       </div>
 
       <form className="perfil-form" onSubmit={handleSubmit}>

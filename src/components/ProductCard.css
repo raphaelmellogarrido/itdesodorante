@@ -14,12 +14,27 @@
 }
 
 .product-card-visual {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--color-blue-tint);
   height: 220px;
   overflow: hidden;
+}
+
+.product-card-esgotado {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
 }
 
 .product-card-visual img {
@@ -75,4 +90,10 @@
 
 .product-card-btn.is-added {
   background-color: var(--color-teal);
+}
+
+.product-card-btn:disabled {
+  background-color: var(--color-border);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
 }

@@ -53,7 +53,11 @@ function ProdutoDetalhe() {
     return () => controller.abort();
   }, [id]);
 
+  const estoque = produto?.estoque ?? 0;
+  const esgotado = estoque <= 0;
+
   const handleAdicionar = () => {
+    if (esgotado) return;
     addItem(produto, quantidade);
     setAdicionado(true);
     setTimeout(() => setAdicionado(false), 1800);
@@ -116,12 +120,23 @@ function ProdutoDetalhe() {
 
           <span className="produto-preco">{formatPreco(produto.price)}</span>
 
+          {esgotado ? (
+            <p className="produto-estoque-aviso produto-estoque-aviso--esgotado">
+              Produto esgotado no momento.
+            </p>
+          ) : (
+            estoque <= 5 && (
+              <p className="produto-estoque-aviso">Apenas {estoque} em estoque.</p>
+            )
+          )}
+
           <div className="produto-compra">
             <div className="produto-quantidade">
               <button
                 type="button"
                 aria-label="Diminuir quantidade"
                 onClick={() => setQuantidade((q) => Math.max(1, q - 1))}
+                disabled={esgotado}
               >
                 −
               </button>
@@ -129,7 +144,8 @@ function ProdutoDetalhe() {
               <button
                 type="button"
                 aria-label="Aumentar quantidade"
-                onClick={() => setQuantidade((q) => q + 1)}
+                onClick={() => setQuantidade((q) => Math.min(estoque, q + 1))}
+                disabled={esgotado || quantidade >= estoque}
               >
                 +
               </button>
@@ -139,8 +155,9 @@ function ProdutoDetalhe() {
               type="button"
               className={`btn btn-solid produto-add-btn${adicionado ? " is-added" : ""}`}
               onClick={handleAdicionar}
+              disabled={esgotado}
             >
-              {adicionado ? "Adicionado ao carrinho ✓" : "Adicionar ao carrinho"}
+              {esgotado ? "Esgotado" : adicionado ? "Adicionado ao carrinho ✓" : "Adicionar ao carrinho"}
             </button>
           </div>
         </div>
