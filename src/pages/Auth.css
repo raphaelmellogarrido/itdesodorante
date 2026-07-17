@@ -101,9 +101,27 @@
   color: var(--color-text-muted);
 }
 
+.auth-esqueci-senha {
+  display: inline-block;
+  margin: -10px 0 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-teal);
+}
+
 .auth-submit {
   width: 100%;
   margin-top: 6px;
+}
+
+.auth-sucesso {
+  background-color: #e8f7ef;
+  border: 1px solid #a9dfc0;
+  color: #1e7a45;
+  font-size: 0.88rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 0 0 18px;
 }
 
 .auth-switch {

@@ -24,6 +24,12 @@ export function AuthProvider({ children }) {
       passwordConfirm,
     });
     await login(email, password);
+
+    try {
+      await pb.collection("users").requestVerification(email);
+    } catch (error) {
+      console.error("Falha ao enviar e-mail de boas-vindas:", error);
+    }
   }
 
   function logout() {
@@ -35,8 +41,26 @@ export function AuthProvider({ children }) {
     await pb.collection("users").authRefresh();
   }
 
+  async function solicitarRedefinicaoSenha(email) {
+    await pb.collection("users").requestPasswordReset(email);
+  }
+
+  async function confirmarRedefinicaoSenha(token, password, passwordConfirm) {
+    await pb.collection("users").confirmPasswordReset(token, password, passwordConfirm);
+  }
+
   return (
-    <AuthContext.Provider value={{ user, login, register, logout, updateProfile }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        login,
+        register,
+        logout,
+        updateProfile,
+        solicitarRedefinicaoSenha,
+        confirmarRedefinicaoSenha,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

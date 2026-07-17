@@ -10,6 +10,8 @@ import Carrinho from "./pages/Carrinho";
 import Perfil from "./pages/Perfil";
 import Entrar from "./pages/Entrar";
 import Registrar from "./pages/Registrar";
+import EsqueciSenha from "./pages/EsqueciSenha";
+import RedefinirSenha from "./pages/RedefinirSenha";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
               <Route path="perfil" element={<Perfil />} />
               <Route path="entrar" element={<Entrar />} />
               <Route path="registrar" element={<Registrar />} />
+              <Route path="esqueci-senha" element={<EsqueciSenha />} />
+              <Route path="redefinir-senha" element={<RedefinirSenha />} />
             </Route>
           </Routes>
         </BrowserRouter>

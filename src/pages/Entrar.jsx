@@ -56,6 +56,10 @@ function Entrar() {
           />
         </label>
 
+        <Link to="/esqueci-senha" className="auth-esqueci-senha">
+          Esqueci minha senha
+        </Link>
+
         <button type="submit" className="btn btn-solid auth-submit" disabled={enviando}>
           {enviando ? "Entrando..." : "Entrar"}
         </button>
