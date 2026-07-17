@@ -1,9 +1,11 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { pb } from "../lib/pocketbase";
+import { useAuth } from "./AuthContext";
 
 const CartContext = createContext(null);
-const STORAGE_KEY = "itdesodorante_cart";
+const STORAGE_KEY = "itdesodorante_cart_guest";
 
-function readStoredCart() {
+function readGuestCart() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     return raw ? JSON.parse(raw) : [];
@@ -13,10 +15,35 @@ function readStoredCart() {
 }
 
 export function CartProvider({ children }) {
-  const [items, setItems] = useState(readStoredCart);
+  const { user } = useAuth();
+  const [items, setItems] = useState([]);
+  const userIdRef = useRef(undefined);
+  const skipNextSave = useRef(false);
 
+  // Switch cart source whenever the logged-in user changes (login/logout).
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    const currentUserId = user?.id || null;
+    if (currentUserId === userIdRef.current) return;
+
+    skipNextSave.current = true;
+    setItems(user ? (Array.isArray(user.cart) ? user.cart : []) : readGuestCart());
+    userIdRef.current = currentUserId;
+  }, [user]);
+
+  // Persist on every change: to the account if logged in, to this browser otherwise.
+  useEffect(() => {
+    if (skipNextSave.current) {
+      skipNextSave.current = false;
+      return;
+    }
+
+    if (user) {
+      pb.collection("users")
+        .update(user.id, { cart: items })
+        .catch((error) => console.error(error));
+    } else {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    }
   }, [items]);
 
   function addItem(produto, quantidade = 1) {

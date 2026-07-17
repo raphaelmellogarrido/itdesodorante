@@ -13,26 +13,16 @@ function Home() {
               Proteção que acompanha
               <br /> o seu ritmo.
             </h1>
-            <p>
-              Conheça a linha FIT IT de desodorantes: fórmulas leves,
-              veganas e desenvolvidas para o seu dia a dia.
-            </p>
+            <p>Conheça a linha FIT IT de desodorantes: fórmulas leves, veganas e desenvolvidas para o seu dia a dia.</p>
             <div className="hero-actions">
               <Link to="/produtos" className="btn btn-solid">
                 Ver produtos
-              </Link>
-              <Link to="/registrar" className="btn btn-outline">
-                Criar conta
               </Link>
             </div>
           </div>
 
           <div className="hero-visual">
-            <img
-              src={produtosImagem}
-              alt="Linha de desodorantes FIT IT: roll-on Fresh, roll-on Exclusive Premium, roll-on Neutro e spray IT Foot"
-              className="hero-produtos-imagem"
-            />
+            <img src={produtosImagem} alt="Linha de desodorantes FIT IT: roll-on Fresh, roll-on Exclusive Premium, roll-on Neutro e spray IT Foot" className="hero-produtos-imagem" />
           </div>
         </div>
       </section>
