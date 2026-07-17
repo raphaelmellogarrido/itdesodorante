@@ -41,9 +41,6 @@ function Navbar() {
           <NavLink to="/produtos" className={linkClass} onClick={closeMenu}>
             Produtos
           </NavLink>
-          <NavLink to="/depoimentos" className={linkClass} onClick={closeMenu}>
-            Depoimentos
-          </NavLink>
 
           <div className="navbar-actions navbar-actions--mobile">
             {user ? (
@@ -99,31 +96,33 @@ function Navbar() {
           )}
         </div>
 
-        <Link
-          to="/carrinho"
-          className="navbar-cart navbar-cart--mobile"
-          onClick={closeMenu}
-          aria-label="Carrinho"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="9" cy="21" r="1" />
-            <circle cx="20" cy="21" r="1" />
-            <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" />
-          </svg>
-          {itemCount > 0 && <span className="navbar-cart-badge">{itemCount}</span>}
-        </Link>
+        <div className="navbar-mobile-actions">
+          <Link
+            to="/carrinho"
+            className="navbar-cart navbar-cart--mobile"
+            onClick={closeMenu}
+            aria-label="Carrinho"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" />
+            </svg>
+            {itemCount > 0 && <span className="navbar-cart-badge">{itemCount}</span>}
+          </Link>
 
-        <button
-          type="button"
-          className={`navbar-toggle${open ? " is-open" : ""}`}
-          aria-label="Abrir menu"
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+          <button
+            type="button"
+            className={`navbar-toggle${open ? " is-open" : ""}`}
+            aria-label="Abrir menu"
+            aria-expanded={open}
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
     </header>
   );
