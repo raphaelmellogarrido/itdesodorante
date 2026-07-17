@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import produtosImagem from "../assets/all_home_page.png";
 import "./Home.css";
 
 function Home() {
@@ -26,18 +27,12 @@ function Home() {
             </div>
           </div>
 
-          <div className="hero-visual" aria-hidden="true">
-            <div className="hero-bottle">
-              <div className="hero-bottle-cap" />
-              <div className="hero-bottle-body">
-                <span className="hero-bottle-brand">
-                  <em>FIT</em>
-                  IT
-                </span>
-                <span className="hero-bottle-label">DESODORANTE</span>
-                <span className="hero-bottle-band">NEUTRO</span>
-              </div>
-            </div>
+          <div className="hero-visual">
+            <img
+              src={produtosImagem}
+              alt="Linha de desodorantes FIT IT: roll-on Fresh, roll-on Exclusive Premium, roll-on Neutro e spray IT Foot"
+              className="hero-produtos-imagem"
+            />
           </div>
         </div>
       </section>

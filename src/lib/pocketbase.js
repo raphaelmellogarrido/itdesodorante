@@ -7,11 +7,19 @@ export function getFileUrl(record, filename) {
   return pb.files.getURL(record, filename);
 }
 
+const MENSAGENS_POR_CODIGO = {
+  validation_not_unique: "Este e-mail já está cadastrado. Tente entrar ou use outro e-mail.",
+  validation_invalid_email: "Digite um e-mail válido.",
+  validation_required: "Preencha todos os campos.",
+  validation_min_text_length: "A senha precisa ter pelo menos 8 caracteres.",
+  validation_length_invalid: "A senha precisa ter pelo menos 8 caracteres.",
+};
+
 export function getErrorMessage(error) {
   const fieldErrors = error?.response?.data;
   if (fieldErrors && Object.keys(fieldErrors).length > 0) {
     return Object.values(fieldErrors)
-      .map((fieldError) => fieldError.message)
+      .map((fieldError) => MENSAGENS_POR_CODIGO[fieldError.code] || fieldError.message)
       .join(" ");
   }
   return error?.response?.message || error?.message || "Algo deu errado. Tente novamente.";

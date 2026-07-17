@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { getErrorMessage } from "../lib/pocketbase";
+import { validarSenha } from "../lib/validation";
 import "./Auth.css";
 
 function Registrar() {
@@ -17,6 +18,12 @@ function Registrar() {
   async function handleSubmit(event) {
     event.preventDefault();
     setErro("");
+
+    const erroSenha = validarSenha(senha);
+    if (erroSenha) {
+      setErro(erroSenha);
+      return;
+    }
 
     if (senha !== confirmarSenha) {
       setErro("As senhas não coincidem.");
@@ -80,6 +87,10 @@ function Registrar() {
             minLength={8}
             required
           />
+          <span className="auth-hint">
+            Mínimo 8 caracteres, com letras e números. Nada de senhas óbvias
+            como "12345678".
+          </span>
         </label>
 
         <label className="auth-field">

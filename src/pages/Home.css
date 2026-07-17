@@ -48,72 +48,11 @@
   justify-content: center;
 }
 
-.hero-bottle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  filter: drop-shadow(0 20px 30px rgba(20, 40, 80, 0.15));
-}
-
-.hero-bottle-cap {
-  width: 120px;
-  height: 90px;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: 60px 60px 20px 20px;
-  margin-bottom: -4px;
-}
-
-.hero-bottle-body {
-  position: relative;
-  width: 200px;
-  height: 260px;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 36px;
-  overflow: hidden;
-}
-
-.hero-bottle-brand {
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: var(--color-navy);
-  line-height: 1;
-}
-
-.hero-bottle-brand em {
-  display: block;
-  font-style: italic;
-  font-size: 0.9rem;
-  color: var(--color-teal);
-  text-align: left;
-  margin-bottom: 2px;
-}
-
-.hero-bottle-label {
-  margin-top: 14px;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  color: var(--color-text-muted);
-  font-weight: 700;
-}
-
-.hero-bottle-band {
-  position: absolute;
-  bottom: 42px;
-  left: 0;
-  right: 0;
-  background-color: var(--color-blue-band);
-  color: var(--color-white);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-align: center;
-  padding: 8px 0;
-  font-size: 0.9rem;
+.hero-produtos-imagem {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  filter: drop-shadow(0 20px 30px rgba(20, 40, 80, 0.18));
 }
 
 .features {
