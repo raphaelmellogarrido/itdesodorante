@@ -1,0 +1,63 @@
+.legal {
+  max-width: 760px;
+  padding: 56px 24px 80px;
+}
+
+.legal-cabecalho {
+  margin-bottom: 36px;
+}
+
+.legal-cabecalho h1 {
+  color: var(--color-navy);
+  margin: 0 0 8px;
+}
+
+.legal-atualizado {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.legal-secao {
+  margin-bottom: 32px;
+}
+
+.legal-secao h2 {
+  color: var(--color-navy);
+  font-size: 1.15rem;
+  margin: 0 0 12px;
+}
+
+.legal-secao p {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+
+.legal-secao ul {
+  margin: 0 0 14px;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legal-secao li {
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.legal-secao a {
+  color: var(--color-teal);
+  font-weight: 600;
+}
+
+.legal-aviso {
+  background-color: var(--color-blue-tint);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  margin: 0 0 36px;
+}
