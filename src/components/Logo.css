@@ -1,24 +1,6 @@
 .logo-mark {
-  height: 42px;
+  height: 100px;
   width: auto;
   display: block;
-}
-
-.logo-fit-text {
-  font-size: 15px;
-  font-weight: 800;
-  font-style: italic;
-  letter-spacing: 1px;
-  fill: var(--color-teal);
-}
-
-.logo-it-text {
-  font-size: 44px;
-  font-weight: 800;
-  letter-spacing: -1px;
-  fill: var(--color-navy);
-}
-
-.logo-star {
-  fill: var(--color-teal);
+  object-fit: contain;
 }
