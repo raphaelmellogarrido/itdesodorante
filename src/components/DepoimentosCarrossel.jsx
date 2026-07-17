@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./DepoimentosCarrossel.css";
 
 const depoimentos = [
@@ -32,7 +32,7 @@ const depoimentos = [
     texto: "Troquei o desodorante com alumínio que usava há anos. Em poucas semanas minha pele embaixo do braço já estava visivelmente mais saudável.",
     avatar: "https://i.pravatar.cc/150?img=32",
     nome: "Bruna Lima",
-    papel: "Cliente satisfeito",
+    papel: "Cliente satisfeita",
   },
   {
     icone: "⭐",
@@ -54,9 +54,9 @@ const depoimentos = [
     icone: "👪",
     tags: ["Uso em família", "Aprovação geral"],
     texto: "Comprei pra família inteira depois que testei. Meus filhos adolescentes também usam e aprovaram — coisa rara em casa.",
-    avatar: "https://i.pravatar.cc/150?img=15",
-    nome: "Fernando Costa",
-    papel: "Pai de 3 filhos",
+    avatar: "https://i.pravatar.cc/150?img=27",
+    nome: "Fernanda Costa",
+    papel: "Mãe de 3 filhos",
   },
   {
     icone: "🏃",
@@ -71,8 +71,8 @@ const depoimentos = [
     tags: ["Entrega rápida", "Bom atendimento"],
     texto: "Pedido chegou rapidinho e bem embalado. O atendimento respondeu todas as minhas dúvidas antes mesmo de eu decidir comprar.",
     avatar: "https://i.pravatar.cc/150?img=8",
-    nome: "Beatriz Fernandes",
-    papel: "Cliente satisfeita",
+    nome: "Bernardo Fernandes",
+    papel: "Cliente satisfeito",
   },
   {
     icone: "🔁",
@@ -108,13 +108,10 @@ function DepoimentosCarrossel() {
 
   const [indice, setIndice] = useState(0);
   const [semTransicao, setSemTransicao] = useState(false);
-  const pausado = useRef(false);
 
   useEffect(() => {
     const intervalo = setInterval(() => {
-      if (!pausado.current) {
-        setIndice((i) => i + 1);
-      }
+      setIndice((i) => i + 1);
     }, 5000);
     return () => clearInterval(intervalo);
   }, []);
@@ -143,7 +140,7 @@ function DepoimentosCarrossel() {
         <h2>O que dizem quem já usa FIT IT</h2>
       </div>
 
-      <div className="carrossel-viewport" style={{ "--visiveis": visiveis }} onMouseEnter={() => (pausado.current = true)} onMouseLeave={() => (pausado.current = false)}>
+      <div className="carrossel-viewport" style={{ "--visiveis": visiveis }}>
         <div className={`carrossel-trilha${semTransicao ? " sem-transicao" : ""}`} style={{ transform: `translateX(-${(100 / visiveis) * indice}%)` }}>
           {trilha.map((dep, i) => (
             <div className="carrossel-slide" key={`${dep.nome}-${i}`}>
