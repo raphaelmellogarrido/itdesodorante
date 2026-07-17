@@ -68,6 +68,10 @@
   gap: 12px;
 }
 
+.navbar-user-nome {
+  text-transform: uppercase;
+}
+
 .navbar-user {
   font-size: 0.92rem;
   font-weight: 600;
@@ -76,6 +80,49 @@
 }
 
 .navbar-actions--mobile {
+  display: none;
+}
+
+.navbar-cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  color: var(--color-navy);
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.navbar-cart:hover {
+  background-color: var(--color-blue-tint);
+}
+
+.navbar-cart svg {
+  width: 22px;
+  height: 22px;
+}
+
+.navbar-cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background-color: var(--color-teal);
+  color: var(--color-white);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.navbar-cart--mobile {
   display: none;
 }
 
@@ -118,6 +165,10 @@
   }
 
   .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-cart--mobile {
     display: flex;
   }
 

@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
 import Logo from "./Logo";
 import "./Navbar.css";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
   const { user, logout } = useAuth();
+  const { itemCount } = useCart();
   const navigate = useNavigate();
 
   const closeMenu = () => setOpen(false);
@@ -44,7 +46,9 @@ function Navbar() {
           <div className="navbar-actions navbar-actions--mobile">
             {user ? (
               <>
-                <span className="navbar-user">Olá, {user.name || user.email}</span>
+                <span className="navbar-user">
+                  Olá, <span className="navbar-user-nome">{user.name || user.email}</span>
+                </span>
                 <button type="button" className="btn btn-outline" onClick={handleSair}>
                   Sair
                 </button>
@@ -63,9 +67,20 @@ function Navbar() {
         </nav>
 
         <div className="navbar-actions navbar-actions--desktop">
+          <Link to="/carrinho" className="navbar-cart" onClick={closeMenu} aria-label="Carrinho">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" />
+            </svg>
+            {itemCount > 0 && <span className="navbar-cart-badge">{itemCount}</span>}
+          </Link>
+
           {user ? (
             <>
-              <span className="navbar-user">Olá, {user.name || user.email}</span>
+              <span className="navbar-user">
+                Olá, <span className="navbar-user-nome">{user.name || user.email}</span>
+              </span>
               <button type="button" className="btn btn-outline" onClick={handleSair}>
                 Sair
               </button>
@@ -81,6 +96,20 @@ function Navbar() {
             </>
           )}
         </div>
+
+        <Link
+          to="/carrinho"
+          className="navbar-cart navbar-cart--mobile"
+          onClick={closeMenu}
+          aria-label="Carrinho"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" />
+          </svg>
+          {itemCount > 0 && <span className="navbar-cart-badge">{itemCount}</span>}
+        </Link>
 
         <button
           type="button"

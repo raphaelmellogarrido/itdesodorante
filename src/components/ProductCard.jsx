@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getFileUrl, stripHtml } from "../lib/pocketbase";
+import { useCart } from "../context/CartContext";
 import "./ProductCard.css";
 
 function formatPreco(preco) {
@@ -8,10 +9,12 @@ function formatPreco(preco) {
 }
 
 function ProductCard({ produto }) {
+  const { addItem } = useCart();
   const [adicionado, setAdicionado] = useState(false);
 
   const handleAdicionar = (event) => {
     event.preventDefault();
+    addItem(produto, 1);
     setAdicionado(true);
     setTimeout(() => setAdicionado(false), 1800);
   };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { pb, getFileUrl, stripHtml } from "../lib/pocketbase";
+import { useCart } from "../context/CartContext";
 import "./ProdutoDetalhe.css";
 
 function formatPreco(preco) {
@@ -9,6 +10,7 @@ function formatPreco(preco) {
 
 function ProdutoDetalhe() {
   const { id } = useParams();
+  const { addItem } = useCart();
   const [produto, setProduto] = useState(null);
   const [outrosProdutos, setOutrosProdutos] = useState([]);
   const [carregando, setCarregando] = useState(true);
@@ -52,6 +54,7 @@ function ProdutoDetalhe() {
   }, [id]);
 
   const handleAdicionar = () => {
+    addItem(produto, quantidade);
     setAdicionado(true);
     setTimeout(() => setAdicionado(false), 1800);
   };
