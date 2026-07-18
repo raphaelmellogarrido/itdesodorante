@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Logo from "./Logo";
 import "./Footer.css";
 
 function Footer() {
@@ -8,11 +7,6 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-inner container">
-        <div className="footer-brand">
-          <Logo className="footer-logo" />
-          <p className="footer-tagline">Desodorantes veganos, sem álcool e sem alumínio.</p>
-        </div>
-
         <div className="footer-col">
           <h3>Navegação</h3>
           <ul>
@@ -25,7 +19,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="footer-col">
+        {/* <div className="footer-col">
           <h3>Conta</h3>
           <ul>
             <li>
@@ -35,7 +29,7 @@ function Footer() {
               <Link to="/registrar">Registrar</Link>
             </li>
           </ul>
-        </div>
+        </div> */}
 
         <div className="footer-col">
           <h3>Contato</h3>

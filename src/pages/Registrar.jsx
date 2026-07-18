@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { getErrorMessage } from "../lib/pocketbase";
 import { validarSenha, nomeValido, emailValido, verificarEmailDisponivel } from "../lib/validation";
@@ -16,7 +16,7 @@ function CheckIcon() {
 }
 
 function Registrar() {
-  const { register } = useAuth();
+  const { user, register } = useAuth();
   const navigate = useNavigate();
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
@@ -64,6 +64,10 @@ function Registrar() {
 
     return () => clearTimeout(timeout);
   }, [email, formatoEmailOk]);
+
+  if (user) {
+    return <Navigate to="/" replace />;
+  }
 
   const emailOk = formatoEmailOk && emailDisponivel === true;
   const emailEmUso = formatoEmailOk && emailDisponivel === false;

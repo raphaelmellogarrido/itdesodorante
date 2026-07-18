@@ -1,17 +1,21 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import BotaoMostrarSenha from "../components/BotaoMostrarSenha";
 import "./Auth.css";
 
 function Entrar() {
-  const { login } = useAuth();
+  const { user, login } = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [erro, setErro] = useState("");
   const [enviando, setEnviando] = useState(false);
+
+  if (user) {
+    return <Navigate to="/" replace />;
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();

@@ -4,11 +4,21 @@
   border-top: 1px solid var(--color-border);
 }
 
-.footer-inner {
+/* .footer-inner {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
   gap: 32px;
   padding: 48px 24px 32px;
+} */
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding: 48px 24px 32px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-brand {

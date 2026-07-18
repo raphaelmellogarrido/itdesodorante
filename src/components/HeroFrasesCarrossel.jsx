@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./HeroFrasesCarrossel.css";
 
-const frases = ["Não mancha sua pele", "Não mancha suas roupas", "Testado por atletas"];
+const frases = ["Não mancha sua pele!", "Não mancha suas roupas!", "Testado por atletas!"];
 
 function HeroFrasesCarrossel() {
   const total = frases.length;
@@ -36,10 +36,7 @@ function HeroFrasesCarrossel() {
 
   return (
     <div className="hero-frase-viewport">
-      <div
-        className={`hero-frase-trilha${semTransicao ? " sem-transicao" : ""}`}
-        style={{ transform: `translateX(-${indice * 100}%)` }}
-      >
+      <div className={`hero-frase-trilha${semTransicao ? " sem-transicao" : ""}`} style={{ transform: `translateX(-${indice * 100}%)` }}>
         {trilha.map((frase, i) => (
           <span className="hero-frase-item" key={`${frase}-${i}`}>
             {frase}
