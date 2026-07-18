@@ -12,7 +12,11 @@ function Produtos() {
     const controller = new AbortController();
 
     pb.collection("products")
-      .getFullList({ sort: "-created", signal: controller.signal })
+      .getFullList({ sort: "+ordem,-created", signal: controller.signal })
+      .catch(() =>
+        // Campo "ordem" ainda não existe na coleção — usa o critério antigo.
+        pb.collection("products").getFullList({ sort: "-created", signal: controller.signal })
+      )
       .then((registros) => setProdutos(registros))
       .catch((error) => {
         if (!controller.signal.aborted) setErro(true);

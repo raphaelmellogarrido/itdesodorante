@@ -39,7 +39,7 @@ function Footer() {
             </li>
             <li>
               <a href="https://www.instagram.com/itdesodorante/" target="_blank">
-                Nosso Instagram <i class="fab fa-instagram"></i>
+                Instagram <i class="fab fa-instagram"></i>
               </a>
             </li>
           </ul>
