@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { pb, getFileUrl, stripHtml } from "../lib/pocketbase";
+import { pb, getFileUrl } from "../lib/pocketbase";
 import { useCart } from "../context/CartContext";
 import "./ProdutoDetalhe.css";
 
@@ -131,7 +131,10 @@ function ProdutoDetalhe() {
         <div className="produto-info">
           <h1>{produto.name}</h1>
 
-          <p className="produto-resumo">{stripHtml(produto.description)}</p>
+          <div
+            className="produto-resumo"
+            dangerouslySetInnerHTML={{ __html: produto.description }}
+          />
 
           <span className="produto-preco">{formatPreco(produto.price)}</span>
 

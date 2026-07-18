@@ -87,7 +87,27 @@
   line-height: 1.6;
   margin: 0 0 22px;
   max-width: 480px;
-  white-space: pre-line;
+}
+
+.produto-resumo p {
+  margin: 0 0 14px;
+}
+
+.produto-resumo p:last-child {
+  margin-bottom: 0;
+}
+
+.produto-resumo strong {
+  color: var(--color-navy);
+}
+
+.produto-resumo ul,
+.produto-resumo ol {
+  margin: 0 0 14px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .produto-preco {

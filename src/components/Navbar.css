@@ -155,7 +155,9 @@
   height: 2px;
   background-color: var(--color-navy);
   border-radius: 2px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .navbar-toggle.is-open span:nth-child(1) {
@@ -170,7 +172,7 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-@media (max-width: 980px) {
+@media (max-width: 800px) {
   .navbar-actions--desktop {
     display: none;
   }
@@ -201,7 +203,9 @@
     transform: translateY(-12px);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
   }
 
   .navbar-nav.is-open {

@@ -137,7 +137,7 @@ function DepoimentosCarrossel() {
     <section className="depoimentos-home container">
       <div className="depoimentos-home-cabecalho">
         <span className="depoimentos-home-badge">Depoimentos</span>
-        <h2>O que dizem quem já usa IT desodorante</h2>
+        <h2>O que dizem quem já usa IT Desodorante</h2>
       </div>
 
       <div className="carrossel-viewport" style={{ "--visiveis": visiveis }}>
