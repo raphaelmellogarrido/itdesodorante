@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./HeroFrasesCarrossel.css";
 
-const frases = ["Não mancha sua pele!", "Não mancha suas roupas!", "Testado por atletas!"];
+const frases = ["Não mancha sua pele!", "Não mancha suas roupas!", "Testado por atletas!", "mais saúde pra você e sua família!"];
 
 function HeroFrasesCarrossel() {
   const total = frases.length;

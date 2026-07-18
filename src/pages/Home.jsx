@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
-import produtosImagem from "../assets/all_home_page.png";
+// import produtosImagem from "../assets/all_home_page.png";
+import produtoUm from "/public/all_1.png";
+import produtoDois from "/public/all_2.png";
+import produtoTres from "/public/all_3.png";
+import produtoQuatro from "/public/all_4.png";
 import DepoimentosCarrossel from "../components/DepoimentosCarrossel";
 import HeroFrasesCarrossel from "../components/HeroFrasesCarrossel";
 import "./Home.css";
@@ -27,7 +31,13 @@ function Home() {
           </div>
 
           <div className="hero-visual">
-            <img src={produtosImagem} alt="Linha de desodorantes FIT IT: roll-on Fresh, roll-on Exclusive Premium, roll-on Neutro e spray IT Foot" className="hero-produtos-imagem" />
+            <div className="product-gallery">
+              {/* <img src={produtosImagem} alt="Linha de desodorantes FIT IT: roll-on Fresh, roll-on Exclusive Premium, roll-on Neutro e spray IT Foot" className="hero-produtos-imagem" /> */}
+              <img src={produtoTres} alt="Linha de desodorantes FIT IT: roll-on Fresh, roll-on Exclusive Premium, roll-on Neutro e spray IT Foot" className="hero-produtos-imagem" class="single-product" />
+              <img src={produtoDois} alt="Linha de desodorantes FIT IT: roll-on Fresh, roll-on Exclusive Premium, roll-on Neutro e spray IT Foot" className="hero-produtos-imagem" class="single-product" />
+              <img src={produtoUm} alt="Linha de desodorantes FIT IT: roll-on Fresh, roll-on Exclusive Premium, roll-on Neutro e spray IT Foot" className="hero-produtos-imagem" class="single-product" />
+              <img src={produtoQuatro} alt="" className="hero-produtos-imagem" class="single-product" />
+            </div>
           </div>
         </div>
       </section>

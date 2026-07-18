@@ -100,3 +100,29 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* O contêiner que segura as imagens */
+.product-gallery {
+  display: flex; /* Alinha os itens em linha */
+  justify-content: space-between; /* Distribui os itens com espaço igual entre eles */
+  align-items: flex-end; /* Alinha todos os produtos pela base (chão) */
+  gap: 0px; /* Adiciona um espaço fixo de 15px entre os produtos */
+  width: 100%; /* O contêiner ocupa toda a largura disponível */
+  max-width: 500px; /* Define uma largura máxima para o bloco de produtos */
+}
+
+.single-product {
+  /* Em vez de max-width fixo em 150px (que multiplicava por 4 e estourava 500px), 
+     usamos a divisão flexível para que os 4 caibam sempre na largura máxima do bloco */
+  width: 23%;
+  height: auto; /* Deixe automático para não amassar o desodorante de spray */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* O EFEITO HOVER */
+.single-product:hover {
+  transform: scale(1.15);
+  position: relative;
+  z-index: 2; /* Garante que o produto que crescer fique na frente dos outros */
+}
