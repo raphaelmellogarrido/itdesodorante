@@ -22,6 +22,10 @@ function Sobre() {
           <h2>Inovação que nasceu da insatisfação</h2>
           <p>Cansados dos desodorantes tradicionais cheios de sais de alumínio, álcool e conservantes agressivos, reunimos dermatologistas, químicos cosméticos e apaixonados por veganismo para desenvolver uma fórmula própria, testada e aprovada em laboratório antes de chegar até você.</p>
           <p>O resultado é o IT desodorante: um desodorante que neutraliza o odor usando ativos de origem vegetal, sem bloquear os poros e sem interferir no processo natural de transpiração do corpo — porque proteção e saúde da pele não deveriam ser escolhas opostas.</p>
+          <p>
+            Além de perder a saúde com essas fórmulas cheias de químicas agressivas você já viu o que acontece com as roupas? Elas ficam manchadas e duras na região das axilas, se isso acontece com um tecido você já pode imaginar o que acontece com o seu organismo. O It Desodorante não agride sua
+            saúde, não mancha sua pele e não mancha sua roupas.
+          </p>
         </div>
         <div className="sobre-story-values">
           <div className="sobre-value-card">
@@ -35,6 +39,13 @@ function Sobre() {
           <div className="sobre-value-card">
             <h3>Feito para durar</h3>
             <p>Proteção que acompanha o seu ritmo, do treino ao expediente, sem precisar reaplicar.</p>
+          </div>
+          <div className="sobre-value-card">
+            <h3>Suas roupas</h3>
+            <p>
+              Devido às químicas agressivas utilizadas nessas fórmulas, as suas roupas ficam manchadas e duras nas axilas, sem falar no que é inalado durante a aplicação dos aerossois comuns. Com o It Desodorante isso não acontece, independentemente da cor da roupa que estiver a usar. Chega de
+              manchas amareladas embaixo dos braços.
+            </p>
           </div>
         </div>
       </section>
