@@ -25,31 +25,46 @@ function ProdutoDetalhe() {
     setNaoEncontrado(false);
     setQuantidade(1);
 
-    pb.collection("products")
-      .getOne(id, { signal: controller.signal })
-      .then((registro) => {
+    async function buscarProduto() {
+      try {
+        // "id" na URL pode ser o slug (link novo) ou o id bruto do PocketBase (link antigo/carrinho).
+        return await pb
+          .collection("products")
+          .getFirstListItem(pb.filter("slug = {:slug}", { slug: id }), {
+            signal: controller.signal,
+          });
+      } catch (error) {
+        if (error?.isAbort) throw error;
+        return await pb.collection("products").getOne(id, { signal: controller.signal });
+      }
+    }
+
+    async function carregar() {
+      try {
+        const registro = await buscarProduto();
+        if (controller.signal.aborted) return;
+
         setProduto(registro);
         setImagemAtiva(registro.featured_image);
-        return pb.collection("products").getFullList({
-          sort: "-created",
+
+        const todos = await pb.collection("products").getFullList({
+          sort: "+ordem,-created",
           signal: controller.signal,
         });
-      })
-      .then((todos) => {
-        if (todos) {
-          setOutrosProdutos(todos.filter((item) => item.id !== id));
+        if (!controller.signal.aborted) {
+          setOutrosProdutos(todos.filter((item) => item.id !== registro.id));
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         if (!controller.signal.aborted) {
           setNaoEncontrado(true);
           console.error(error);
         }
-      })
-      .finally(() => {
+      } finally {
         if (!controller.signal.aborted) setCarregando(false);
-      });
+      }
+    }
 
+    carregar();
     return () => controller.abort();
   }, [id]);
 
@@ -169,7 +184,7 @@ function ProdutoDetalhe() {
           <div className="produto-relacionados-grid">
             {outrosProdutos.map((item) => (
               <Link
-                to={`/produtos/${item.id}`}
+                to={`/produtos/${item.slug || item.id}`}
                 className="produto-relacionado-card"
                 key={item.id}
               >

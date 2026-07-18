@@ -26,7 +26,7 @@ function ProductCard({ produto }) {
   const imageUrl = getFileUrl(produto, produto.featured_image);
 
   return (
-    <Link to={`/produtos/${produto.id}`} className="product-card">
+    <Link to={`/produtos/${produto.slug || produto.id}`} className="product-card">
       <div className="product-card-visual">
         <img src={imageUrl} alt={produto.name} loading="lazy" />
         {esgotado && <span className="product-card-esgotado">Esgotado</span>}

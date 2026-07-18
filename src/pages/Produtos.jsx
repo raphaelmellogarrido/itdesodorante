@@ -11,21 +11,40 @@ function Produtos() {
   useEffect(() => {
     const controller = new AbortController();
 
-    pb.collection("products")
-      .getFullList({ sort: "+ordem,-created", signal: controller.signal })
-      .catch(() =>
-        // Campo "ordem" ainda não existe na coleção — usa o critério antigo.
-        pb.collection("products").getFullList({ sort: "-created", signal: controller.signal })
-      )
-      .then((registros) => setProdutos(registros))
-      .catch((error) => {
-        if (!controller.signal.aborted) setErro(true);
-        if (!controller.signal.aborted) console.error(error);
-      })
-      .finally(() => {
-        if (!controller.signal.aborted) setCarregando(false);
-      });
+    async function carregarProdutos() {
+      try {
+        const registros = await pb.collection("products").getFullList({
+          sort: "+ordem,-created",
+          signal: controller.signal,
+        });
+        if (!controller.signal.aborted) {
+          setProdutos(registros);
+          setCarregando(false);
+        }
+      } catch (error) {
+        if (controller.signal.aborted) return;
 
+        try {
+          // Campo "ordem" ainda não existe na coleção — usa o critério antigo.
+          const registros = await pb.collection("products").getFullList({
+            sort: "-created",
+            signal: controller.signal,
+          });
+          if (!controller.signal.aborted) {
+            setProdutos(registros);
+            setCarregando(false);
+          }
+        } catch (fallbackError) {
+          if (!controller.signal.aborted) {
+            setErro(true);
+            setCarregando(false);
+            console.error(fallbackError);
+          }
+        }
+      }
+    }
+
+    carregarProdutos();
     return () => controller.abort();
   }, []);
 

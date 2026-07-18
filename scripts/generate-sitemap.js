@@ -15,7 +15,7 @@ const PAGINAS_ESTATICAS = [
 async function buscarProdutos() {
   try {
     const resposta = await fetch(
-      `${POCKETBASE_URL}/api/collections/products/records?perPage=200&fields=id,updated`
+      `${POCKETBASE_URL}/api/collections/products/records?perPage=200&fields=id,slug,updated`
     );
     if (!resposta.ok) throw new Error(`HTTP ${resposta.status}`);
     const dados = await resposta.json();
@@ -44,7 +44,7 @@ async function gerarSitemap() {
 
   const urlsProdutos = produtos.map((produto) =>
     gerarUrlXml({
-      loc: `/produtos/${produto.id}`,
+      loc: `/produtos/${produto.slug || produto.id}`,
       changefreq: "monthly",
       priority: "0.7",
       lastmod: produto.updated ? produto.updated.slice(0, 10) : undefined,
