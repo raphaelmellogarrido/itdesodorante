@@ -42,6 +42,11 @@ function Footer() {
                 Instagram <i class="fab fa-instagram"></i>
               </a>
             </li>
+            <li>
+              <a href="https://wa.me/+351929230161" target="_blank">
+                WhatsApp <i class="fab fa-instagram"></i>
+              </a>
+            </li>
           </ul>
         </div>
 
