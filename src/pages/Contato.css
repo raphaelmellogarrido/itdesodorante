@@ -1,0 +1,95 @@
+.contato {
+  max-width: 640px;
+  padding: 56px 24px 80px;
+}
+
+.contato-cabecalho {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.contato-cabecalho h1 {
+  color: var(--color-navy);
+  margin: 0 0 8px;
+}
+
+.contato-cabecalho p {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.contato-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 20px 40px rgba(20, 40, 80, 0.08);
+}
+
+.contato-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 22px;
+}
+
+.contato-field input,
+.contato-field textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text);
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-blue-tint);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.contato-field input::placeholder,
+.contato-field textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.contato-field input:focus,
+.contato-field textarea:focus {
+  border-color: var(--color-teal);
+  background-color: var(--color-white);
+}
+
+.contato-sucesso {
+  background-color: #e8f7ef;
+  border: 1px solid #a9dfc0;
+  color: #1e7a45;
+  font-size: 0.88rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 0 0 18px;
+}
+
+.contato-enviar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+  padding: 14px 16px;
+  font-size: 1rem;
+}
+
+.contato-enviar svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 640px) {
+  .contato-card {
+    padding: 24px;
+  }
+}

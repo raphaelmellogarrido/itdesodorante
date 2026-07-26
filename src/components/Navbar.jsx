@@ -41,6 +41,9 @@ function Navbar() {
           <NavLink to="/produtos" className={linkClass} onClick={closeMenu}>
             Produtos
           </NavLink>
+          <NavLink to="/contato" className={linkClass} onClick={closeMenu}>
+            Contato
+          </NavLink>
 
           <div className="navbar-actions navbar-actions--mobile">
             {user ? (

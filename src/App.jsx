@@ -10,6 +10,7 @@ import Carrinho from "./pages/Carrinho";
 import Perfil from "./pages/Perfil";
 import MeusPedidos from "./pages/MeusPedidos";
 import PedidoConfirmado from "./pages/PedidoConfirmado";
+import Contato from "./pages/Contato";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import TermosDeUso from "./pages/TermosDeUso";
 import Entrar from "./pages/Entrar";
@@ -29,6 +30,7 @@ function App() {
               <Route path="sobre" element={<Sobre />} />
               <Route path="produtos" element={<Produtos />} />
               <Route path="produtos/:id" element={<ProdutoDetalhe />} />
+              <Route path="contato" element={<Contato />} />
               <Route path="carrinho" element={<Carrinho />} />
               <Route path="perfil" element={<Perfil />} />
               <Route path="meus-pedidos" element={<MeusPedidos />} />
