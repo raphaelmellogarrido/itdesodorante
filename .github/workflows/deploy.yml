@@ -22,3 +22,4 @@ jobs:
           target: "/var/www/itdesodorante"
           strip_components: 1
           overwrite: true
+          rm: true
