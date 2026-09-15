@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(npm install *)",
+      "Bash(identify src/assets/hero.png)",
+      "WebSearch",
+      "WebFetch(domain:supabase.com)",
+      "WebFetch(domain:pocketbase.io)",
+      "WebFetch(domain:github.com)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(python3 -c ' *)",
+      "WebFetch(domain:www.zoho.com)",
+      "WebFetch(domain:improvmx.com)",
+      "WebFetch(domain:www.mercadopago.com.br)",
+      "WebFetch(domain:help.brevo.com)",
+      "Bash(node scripts/generate-sitemap.js)",
+      "Bash(npm run *)",
+      "Bash(curl -s \"https://itdesodorante.com.br/api/collections/products/records?sort=%2Bordem%2C-created&fields=id,name,ordem\")",
+      "Bash(curl -s \"https://itdesodorante.com.br/\")",
+      "Bash(curl -s \"https://itdesodorante.com.br/assets/index-BigJfwse.js\")",
+      "Bash(grep -oE 'ordem[^,]{0,30}')",
+      "Bash(curl -s \"https://itdesodorante.com.br/api/collections/products/records?perPage=1&fields=id,slug,updated\")",
+      "Bash(curl -s \"https://itdesodorante.com.br/api/collections/products/records?filter=slug%3D%27kit%27\")",
+      "Bash(curl -s \"https://itdesodorante.com.br/assets/index-BP_Z83X2.js\")",
+      "Bash(curl -s \"https://itdesodorante.com.br/api/collections/products/records?fields=id,name,slug\")",
+      "Bash(curl -s \"https://itdesodorante.com.br/api/collections/products/records?filter=slug%3D%27kit-protecao-total%27\")",
+      "Bash(git rm *)"
+    ]
+  }
+}

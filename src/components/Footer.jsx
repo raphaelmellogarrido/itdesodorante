@@ -74,8 +74,8 @@ function Footer() {
       </div> */}
 
       <div className="footer-bottom">
-        <p>CNPJ 00.000.000/0001-00 — Rua Exemplo, 123, Centro, Rio de Janeiro/RJ, CEP 20000-000</p>
-        <p>&copy; {year} It Desodorante. Todos os direitos reservados.</p>
+        <p>CNPJ 69.019.386/0001-80 — Rua José Alves Moreira, 120, Minas Gerais - Brasil</p>
+        <p>&copy; {year} It Desodorante Ltda. Todos os direitos reservados.</p>
       </div>
     </footer>
   );
